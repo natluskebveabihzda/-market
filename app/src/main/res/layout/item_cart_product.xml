@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginHorizontal="@dimen/medium_space"
+  android:layout_marginTop="@dimen/default_space"
+  app:cardCornerRadius="@dimen/radius_medial"
+  app:cardElevation="@dimen/zero">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="@dimen/default_space">
+
+    <ImageView
+      android:id="@+id/ivProductImage"
+      android:layout_width="@dimen/zero"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/default_space"
+      android:contentDescription="@string/product"
+      android:scaleType="centerInside"
+      android:src="@drawable/img_shirt"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/dividerProduct"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.divider.MaterialDivider
+      android:id="@+id/dividerProduct"
+      android:layout_width="@dimen/one"
+      android:layout_height="@dimen/zero"
+      app:dividerColor="@color/platinum"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.4"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/tvProductTitle"
+      android:layout_width="@dimen/zero"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/default_space"
+      android:layout_marginTop="@dimen/default_space"
+      android:layout_marginBottom="@dimen/wee_space"
+      android:ellipsize="end"
+      android:gravity="start|center_vertical"
+      android:includeFontPadding="false"
+      android:maxLines="3"
+      android:textAppearance="@style/Text.Regular.H8"
+      app:layout_constraintBottom_toTopOf="@id/btnRemove"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/dividerProduct"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0"
+      tools:text="Product Title" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tvProductPrice"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start|center_vertical"
+      android:layout_marginBottom="@dimen/default_space"
+      android:gravity="center"
+      android:includeFontPadding="false"
+      android:paddingVertical="@dimen/zero"
+      android:textAppearance="@style/Text.Regular.H4"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="@id/tvProductTitle"
+      app:layout_constraintTop_toBottomOf="@id/tvProductTitle"
+      app:layout_constraintVertical_bias="1"
+      tools:text="0$" />
+
+    <ImageButton
+      android:id="@+id/btnRemove"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/default_space"
+      android:background="?selectableItemBackgroundBorderless"
+      android:contentDescription="@string/remove_product_from_cart"
+      android:src="@drawable/ic_remove_shop_cart"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

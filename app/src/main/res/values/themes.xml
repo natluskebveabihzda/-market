@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <style name="Theme.Dmarket" parent="Theme.Material3.Light">
+     <item name="colorPrimary">@color/white</item>
+    <item name="colorSurface">@color/platinum</item>
+    <item name="colorOnSecondary">@color/platinum</item>
+    <item name="colorAccent">@color/gray</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+  </style>
+</resources>

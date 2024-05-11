@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph"
+  app:startDestination="@id/productListFragment">
+
+  <fragment
+    android:id="@+id/productListFragment"
+    android:name="com.deveem.dmarket.ui.fragment.product.list.ProductListFragment"
+    tools:layout="@layout/fragment_product_list">
+
+    <action
+      android:id="@+id/action_productListFragment_to_productsCartFragment"
+      app:destination="@id/productsCartFragment"
+      app:popUpToSaveState="true"
+      app:restoreState="true"
+      app:enterAnim="@anim/slide_in_right"
+      app:exitAnim="@anim/slide_out_left"
+      app:popEnterAnim="@anim/slide_in_left"
+      app:popExitAnim="@anim/slide_out_right"/>
+  </fragment>
+
+  <fragment
+    android:id="@+id/productsCartFragment"
+    android:name="com.deveem.dmarket.ui.fragment.product.cart.ProductsCartFragment"
+    tools:layout="@layout/fragment_products_cart">
+    <action
+      android:id="@+id/action_productsCartFragment_to_productListFragment"
+      app:destination="@id/productListFragment" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/productDetailFragment"
+    android:name="com.deveem.dmarket.ui.fragment.product.detail.ProductDetailFragment"
+    tools:layout="@layout/fragment_product_detail" />
+</navigation>

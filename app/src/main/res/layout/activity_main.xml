@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/platinum"
+  android:backgroundTint="@color/platinum"
+  android:clipToPadding="false"
+  android:fitsSystemWindows="true"
+  tools:context=".MainActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    app:liftOnScroll="true">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+      android:id="@+id/collapsingToolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+      android:background="@android:color/transparent"
+      app:collapsedTitleGravity="center|center_horizontal"
+      app:collapsedTitleTextAppearance="@style/Text.Medium.H4"
+      app:collapsedTitleTextColor="@color/black"
+      app:contentScrim="@color/gray"
+      app:expandedTitleGravity="start|bottom"
+      app:expandedTitleMarginBottom="@dimen/medium_space"
+      app:expandedTitleMarginStart="@dimen/default_space"
+      app:expandedTitleTextAppearance="@style/Text.Medium.H1"
+      app:expandedTitleTextColor="@color/black"
+      app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed"
+      app:statusBarScrim="@color/gray"
+      app:titleCollapseMode="scale">
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="@dimen/default_space"
+        android:includeFontPadding="false"
+        android:text="@string/app_name"
+        android:textAppearance="@style/Text.Medium.H3" />
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvCategoryTopUnderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:elevation="@dimen/elevation_big"
+        android:includeFontPadding="false"
+        android:text="@string/category"
+        android:textAllCaps="true"
+        android:textAppearance="@style/Text.Regular.H8"
+        app:layout_collapseMode="pin" />
+
+      <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginHorizontal="@dimen/default_space"
+        app:contentInsetEnd="@dimen/zero"
+        app:layout_collapseMode="pin"
+        app:theme="@style/Theme.GuidelinesCompatToolbar"
+        app:titleCentered="true" />
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvCategoryBottomUnderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="@dimen/default_space"
+        android:elevation="@dimen/elevation_big"
+        android:includeFontPadding="false"
+        android:text="@string/category"
+        android:textAllCaps="true"
+        android:textAppearance="@style/Text.Regular.H9"
+        app:layout_collapseMode="pin" />
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+      android:id="@+id/progress"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom"
+      android:indeterminateOnly="true"
+      app:indicatorColor="@color/black"
+      app:trackColor="@color/gray"
+      app:trackThickness="4dp" />
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.fragment.app.FragmentContainerView
+    android:id="@+id/navigation_host_fragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    app:defaultNavHost="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:navGraph="@navigation/navigation_graph" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

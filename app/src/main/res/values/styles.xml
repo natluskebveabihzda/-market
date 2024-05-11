@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--  Text  -->
+  <style name="Text">
+    <item name="android:textColor">@color/black</item>
+  </style>
+
+  <!--  Text - Light  -->
+  <style name="Text.Light" parent="Text">
+    <item name="android:fontFamily">@font/poppins_light</item>
+  </style>
+
+  <style name="Text.Light.H1" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_1</item>
+  </style>
+
+  <style name="Text.Light.H2" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_2</item>
+  </style>
+
+  <style name="Text.Light.H3" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_3</item>
+  </style>
+
+  <style name="Text.Light.H4" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_4</item>
+  </style>
+
+  <style name="Text.Light.H5" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_5</item>
+  </style>
+
+  <style name="Text.Light.H6" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_6</item>
+  </style>
+
+  <style name="Text.Light.H7" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_headline_7</item>
+  </style>
+
+  <style name="Text.Light.H8" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_normal</item>
+  </style>
+
+  <style name="Text.Light.H9" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_middle</item>
+  </style>
+
+  <style name="Text.Light.H10" parent="Text.Light">
+    <item name="android:textSize">@dimen/text_small</item>
+  </style>
+
+  <!--  Text - Regular  -->
+  <style name="Text.Regular" parent="Text">
+    <item name="android:fontFamily">@font/poppins_regular</item>
+  </style>
+
+  <style name="Text.Regular.H1" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_1</item>
+  </style>
+
+  <style name="Text.Regular.H2" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_2</item>
+  </style>
+
+  <style name="Text.Regular.H3" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_3</item>
+  </style>
+
+  <style name="Text.Regular.H4" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_4</item>
+  </style>
+
+  <style name="Text.Regular.H5" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_5</item>
+  </style>
+
+  <style name="Text.Regular.H6" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_6</item>
+  </style>
+
+  <style name="Text.Regular.H7" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_headline_7</item>
+  </style>
+
+  <style name="Text.Regular.H8" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_normal</item>
+  </style>
+
+  <style name="Text.Regular.H9" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_middle</item>
+  </style>
+
+  <style name="Text.Regular.H10" parent="Text.Regular">
+    <item name="android:textSize">@dimen/text_small</item>
+  </style>
+
+  <!--  Text - Medium  -->
+  <style name="Text.Medium" parent="Text">
+    <item name="android:fontFamily">@font/poppins_medium</item>
+  </style>
+
+  <style name="Text.Medium.H1" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_1</item>
+  </style>
+
+  <style name="Text.Medium.H2" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_2</item>
+  </style>
+
+  <style name="Text.Medium.H3" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_3</item>
+  </style>
+
+  <style name="Text.Medium.H4" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_4</item>
+  </style>
+
+  <style name="Text.Medium.H5" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_5</item>
+  </style>
+
+  <style name="Text.Medium.H6" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_6</item>
+  </style>
+
+  <style name="Text.Medium.H7" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_headline_7</item>
+  </style>
+
+  <style name="Text.Medium.H8" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_normal</item>
+  </style>
+
+  <style name="Text.Medium.H9" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_middle</item>
+  </style>
+
+  <style name="Text.Medium.H10" parent="Text.Medium">
+    <item name="android:textSize">@dimen/text_small</item>
+  </style>
+
+  <!--  Text - Bold  -->
+  <style name="Text.Bold" parent="Text">
+    <item name="android:fontFamily">@font/poppins_bold</item>
+  </style>
+
+  <style name="Text.Bold.H1" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_1</item>
+  </style>
+
+  <style name="Text.Bold.H2" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_2</item>
+  </style>
+
+  <style name="Text.Bold.H3" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_3</item>
+  </style>
+
+  <style name="Text.Bold.H4" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_4</item>
+  </style>
+
+  <style name="Text.Bold.H5" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_5</item>
+  </style>
+
+  <style name="Text.Bold.H6" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_6</item>
+  </style>
+
+  <style name="Text.Bold.H7" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_headline_7</item>
+  </style>
+
+  <style name="Text.Bold.H8" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_normal</item>
+  </style>
+
+  <style name="Text.Bold.H9" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_middle</item>
+  </style>
+
+  <style name="Text.Bold.H10" parent="Text.Bold">
+    <item name="android:textSize">@dimen/text_small</item>
+  </style>
+
+  <!-- Text - SemiBold  -->
+  <style name="Text.SemiBold" parent="Text">
+    <item name="android:fontFamily">@font/poppins_semibold</item>
+  </style>
+
+  <style name="Text.SemiBold.H1" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_1</item>
+  </style>
+
+  <style name="Text.SemiBold.H2" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_2</item>
+  </style>
+
+  <style name="Text.SemiBold.H3" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_3</item>
+  </style>
+
+  <style name="Text.SemiBold.H4" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_4</item>
+  </style>
+
+  <style name="Text.SemiBold.H5" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_5</item>
+  </style>
+
+  <style name="Text.SemiBold.H6" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_6</item>
+  </style>
+
+  <style name="Text.SemiBold.H7" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_headline_7</item>
+  </style>
+
+  <style name="Text.SemiBold.H8" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_normal</item>
+  </style>
+
+  <style name="Text.SemiBold.H9" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_middle</item>
+  </style>
+
+  <style name="Text.SemiBold.H10" parent="Text.SemiBold">
+    <item name="android:textSize">@dimen/text_small</item>
+  </style>
+
+  <!-- Custom Toolbar  -->
+  <style name="Custom.Widget.Toolbar.Button.Navigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+    <item name="android:minWidth">@dimen/default_button</item>
+    <item name="android:scaleType">center</item>
+  </style>
+
+  <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <item name="color">@color/transparent</item>
+  </style>
+
+  <style name="Custom.Widget.Toolbar" parent="Widget.AppCompat.Toolbar">
+    <item name="maxButtonHeight">@dimen/default_button</item>
+    <item name="buttonGravity">center_vertical</item>
+  </style>
+
+  <style name="Theme.GuidelinesCompatToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+    <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
+    <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation</item>
+    <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+  </style>
+
+</resources>
