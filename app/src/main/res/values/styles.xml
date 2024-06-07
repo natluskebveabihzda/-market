@@ -250,6 +250,27 @@
     <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
     <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation</item>
     <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    <item name="android:windowActionBarOverlay">true</item>
+    <!-- Support library compatibility -->
+    <item name="windowActionBarOverlay">true</item>
+    <item name="android:actionBarStyle">@style/TransparentActionBar</item>
+  </style>
+
+  <style name="LayoutPageTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowActionBarOverlay">true</item>
+    <!-- Support library compatibility -->
+    <item name="windowActionBarOverlay">true</item>
+    <item name="android:actionBarStyle">@style/TransparentActionBar</item>
+  </style>
+  <!-- ActionBar styles -->
+  <style name="TransparentActionBar"
+    parent="@android:style/Widget.Holo.Light.ActionBar">
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+
+  <style name="TransparentBackgroundBottomSheetDialog" parent="Theme.Design.BottomSheetDialog">
+    <item name="android:backgroundDimEnabled">false</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
   </style>
 
 </resources>

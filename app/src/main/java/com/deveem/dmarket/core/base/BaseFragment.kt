@@ -26,7 +26,6 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(
   
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     _binding = inflateBinding()
-    initSubscribers()
     return binding.root
   }
   

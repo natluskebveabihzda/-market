@@ -1,5 +1,6 @@
 package com.deveem.dmarket.ui.fragment.product.list
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.deveem.dmarket.core.base.BaseViewModel
 import com.deveem.dmarket.data.Resource
@@ -46,20 +47,11 @@ class ProductListViewModel @Inject constructor(
     _isAllProductsSavedState.value = UIState.Success(isSaved)
   }
   
-  fun addProductToCart(product: ProductDto){
-    viewModelScope.launch {
-      repository.addCartItem(product.toCartDto()).collect { resource ->
-        if (resource is Resource.Success) {
-          getAllCartTotalValue()
-        }
-      }
-    }
-  }
-  
   fun getAllCartTotalValue() {
     viewModelScope.launch {
       repository.checkIsAllCartProductsTotalValue().collect { resource ->
         if (resource is Resource.Success) {
+          Log.d("WWWWWWWWWWWWWWWWWWWWWWW", "getAllCartTotalValue:${ UIState.Success(resource.data?: 0 )} ")
           _isAllCartProductsTotalValue.value = UIState.Success(resource.data?: 0 )
         }
       }

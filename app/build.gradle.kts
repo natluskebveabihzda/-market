@@ -104,6 +104,9 @@ dependencies {
   // Blur View
   implementation ("com.github.Dimezis:BlurView:version-2.0.3")
   
+  implementation(libs.logging.interceptor) {
+    exclude(group = "org.json", module = "json")
+  }
   // Paging 3
   implementation(libs.paging.paging)
   implementation(libs.paging.common)

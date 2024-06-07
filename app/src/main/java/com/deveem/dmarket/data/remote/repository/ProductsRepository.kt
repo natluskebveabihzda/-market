@@ -26,7 +26,6 @@ class ProductsRepository @Inject constructor(
 ) : BaseRepository() {
   private var isProductSaved = false
   private var isAllProductSaved = false
-  private var isCartProductSaved = false
   
   fun isProductsByCategorySaved() = isProductSaved
   fun isALlProductsSaved() = isAllProductSaved
@@ -85,7 +84,6 @@ class ProductsRepository @Inject constructor(
   
   fun addCartItem(cartProductDto: CartProductDto): Flow<Resource<Unit>> = flow {
     val isSaved = checkIsSingleCartSaved(cartProductDto)
-    isCartProductSaved = isSaved
     if (!isSaved) {
       emit(Resource.Loading())
       try {
@@ -107,6 +105,9 @@ class ProductsRepository @Inject constructor(
     return appDao.isCartProductSaved(cartProductDto.id) > 0
   }
   
+  fun checkIsSavedSingleProduct(cartProductDto: CartProductDto) =
+    doLocalRequest { appDao.isCartProductSaved(cartProductDto.id) > 0 }
+  
   private suspend fun checkIsSavedAllProducts(): Boolean {
     return appDao.isAllProductsSaved() > 0
   }
@@ -120,7 +121,7 @@ class ProductsRepository @Inject constructor(
       emit(Resource.Error(ioException.localizedMessage ?: "unknown exception"))
     }
   }.flowOn(Dispatchers.IO)
-
+  
   
   fun isCategoriesSaved() = doLocalRequest { appDao.isCategoriesSaved() > 0 }
   

@@ -9,4 +9,6 @@ object Constants {
   internal const val PRODUCTS = "Products"
   internal const val CART = "Cart"
   
+  const val CALL_DISMISS_KEY = "call dismiss"
+  
 }

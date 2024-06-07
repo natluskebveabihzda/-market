@@ -1,6 +1,7 @@
 package com.deveem.dmarket.data.dto
 
 import com.deveem.dmarket.data.local.room.entity.ProductsEntity
+import java.io.Serializable
 
 data class ProductDto(
   val category: String,
@@ -10,12 +11,12 @@ data class ProductDto(
   val rating: RatingDto,
   val title: String,
   val id: Int,
-) : java.io.Serializable
+) : Serializable
 
 data class RatingDto(
   val count: Int,
   val rate: Double,
-)
+) : Serializable
 
 fun ProductDto.toProductEntity() = ProductsEntity(
   category = this.category,

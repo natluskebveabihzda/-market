@@ -1,8 +1,11 @@
 package com.deveem.dmarket.di
 
+import android.util.Log.VERBOSE
 import com.deveem.dmarket.data.local.Constants
 import com.deveem.dmarket.data.local.Constants.BASE_URL
 import com.deveem.dmarket.data.remote.apiservice.ProductsAPIService
+import com.ihsanbal.logging.Level
+import com.ihsanbal.logging.LoggingInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,14 +34,17 @@ object RetrofitModule {
   @Singleton
   @Provides
   fun provideOkHttpClient(): OkHttpClient {
-    return OkHttpClient()
-      .newBuilder()
-      .addInterceptor(provideLoggingInterceptor())
-      .callTimeout(60, TimeUnit.SECONDS)
+    val client = OkHttpClient.Builder()
+    client.addInterceptor(
+      LoggingInterceptor.Builder()
+      .setLevel(Level.BASIC)
+      .log(VERBOSE)
+      .build())
+    client.callTimeout(60, TimeUnit.SECONDS)
       .connectTimeout(60, TimeUnit.SECONDS)
       .readTimeout(60, TimeUnit.SECONDS)
       .writeTimeout(60, TimeUnit.SECONDS)
-      .build()
+    return client.build()
   }
   
   @Singleton

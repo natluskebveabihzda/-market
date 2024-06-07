@@ -1,11 +1,14 @@
 package com.deveem.dmarket.ui.fragment.product.list
 
+import android.content.Context
 import android.graphics.Color
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
+import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -15,6 +18,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -25,9 +30,10 @@ import androidx.navigation.fragment.findNavController
 import com.deveem.dmarket.MainActivity
 import com.deveem.dmarket.R
 import com.deveem.dmarket.core.base.BaseFragment
+import com.deveem.dmarket.core.extention.setupBlurView
 import com.deveem.dmarket.data.dto.ProductDto
+import com.deveem.dmarket.data.local.Constants.CALL_DISMISS_KEY
 import com.deveem.dmarket.data.local.Constants.PRODUCTS
-import com.deveem.dmarket.data.local.Constants.PRODUCT_DETAILS_KEY
 import com.deveem.dmarket.databinding.FragmentProductListBinding
 import com.deveem.dmarket.util.CountDrawable
 import com.deveem.dmarket.util.UIState
@@ -48,6 +54,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
   private var isCategorySaved = false
   private var cartCount = 0
   
+  
   override fun initView() {
     binding.rvProducts.adapter = productListAdapter
     initTopAppBarNavigation()
@@ -56,16 +63,25 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
   
   override fun initListeners() {}
   
-  override fun initRequest() {/*
+  @RequiresApi(Build.VERSION_CODES.S)
+  override fun initRequest() {
+    
+    /*
     viewModel.getCategories()
     viewModel.isCategoriesSaved()*/
     viewModel.getAllCartTotalValue()
     viewModel.getAllProducts()
     viewModel.isALlProductsSaved()/*
    
+   
     category.let { viewModel.getProductsByCategory(it) }
     viewModel.isProductsByCategorySaved()*/
     
+  }
+  
+  override fun onResume() {
+    super.onResume()
+    viewModel.getAllCartTotalValue()
   }
   
   override fun initSubscribers() {
@@ -74,6 +90,14 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
         viewModel.createCategories(it)
       }
     })
+    
+    findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(
+      CALL_DISMISS_KEY
+    )?.observe(viewLifecycleOwner) {
+      it?.let {
+        this@ProductListFragment.onResume()
+      }
+    }
     
     viewModel.productsState.spectateUiState(success = {
       Log.d("TAN_LOG/PRODUCTS_SIZE", " ${it.size}")
@@ -118,36 +142,19 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
   }
   
   private fun toDetails(model: ProductDto) {
-    viewModel.addProductToCart(model)
-    viewModel.getAllCartTotalValue()
+    this@ProductListFragment.onPause()
+    findNavController().navigate(ProductListFragmentDirections.actionProductListFragmentToProductDetailBottomSheetDialogFragment(model))
   }
   
+  override fun onViewStateRestored(savedInstanceState: Bundle?) {
+    super.onViewStateRestored(savedInstanceState)
+    viewModel.getAllCartTotalValue()
+  }
   private fun initTopAppBarTitle(category: String) {
     val bigText = PRODUCTS
-    val uppercaseTextCategory = category.uppercase(Locale.ROOT)
-    val spannable = SpannableString("$bigText ")
+    val spannable = SpannableString(bigText)
     
-    spannable.setSpan(
-      StyleSpan(Typeface.NORMAL),
-      0,
-      bigText.length,
-      Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-    )
-    
-    spannable.setSpan(
-      RelativeSizeSpan(0.4f),
-      bigText.length + 1,
-      spannable.length,
-      Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-    )
-    
-    spannable.setSpan(
-      ForegroundColorSpan(Color.GRAY),
-      bigText.length + 1,
-      spannable.length,
-      Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-    )
-    (activity as MainActivity).setToolbarTitle(spannable,category)
+    (activity as MainActivity).setToolbarTitle(spannable, category)
   }
   
   private fun initTopAppBarNavigation() {

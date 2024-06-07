@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:orientation="vertical"
+  android:layout_height="match_parent">
+  
+  <com.google.android.material.divider.MaterialDivider
+    android:layout_width="68dp"
+    android:layout_height="4dp"
+    app:dividerColor="@color/gray"
+    android:layout_marginTop="@dimen/low_space"
+    android:layout_marginBottom="@dimen/default_space"
+    android:layout_gravity="center"/>
+
+  <ImageView
+    android:id="@+id/ivProduct"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:scaleType="centerInside"
+    android:layout_marginBottom="@dimen/default_space"
+    android:src="@drawable/img_shirt"/>
+
+  <com.google.android.material.button.MaterialButtonToggleGroup
+    android:id="@+id/ratingBar"
+    android:layout_width="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginBottom="@dimen/default_space"
+    android:layout_marginStart="@dimen/default_space"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_height="24dp"
+    app:singleSelection="true">
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/star1"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      app:backgroundTint="@color/white"
+      app:iconTint="@color/black"
+      app:cornerRadius="0dp"
+      app:icon="@drawable/ic_star_empty"
+      app:iconGravity="textStart"
+      app:iconSize="24dp"
+      app:rippleColor="@null"
+      app:strokeWidth="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/star2"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      app:backgroundTint="@color/white"
+      app:iconTint="@color/black"
+      app:cornerRadius="0dp"
+      app:icon="@drawable/ic_star_empty"
+      app:iconGravity="textStart"
+      app:iconSize="24dp"
+      app:rippleColor="@null"
+      app:strokeWidth="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/star3"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      app:backgroundTint="@color/white"
+      app:iconTint="@color/black"
+      app:cornerRadius="0dp"
+      app:icon="@drawable/ic_star_empty"
+      app:iconGravity="textStart"
+      app:iconSize="24dp"
+      app:rippleColor="@null"
+      app:strokeWidth="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/star4"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      app:backgroundTint="@color/white"
+      app:iconTint="@color/black"
+      app:cornerRadius="0dp"
+      app:icon="@drawable/ic_star_empty"
+      app:iconGravity="textStart"
+      app:iconSize="24dp"
+      app:rippleColor="@null"
+      app:strokeWidth="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/star5"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      app:backgroundTint="@color/white"
+      app:iconTint="@color/black"
+      app:cornerRadius="0dp"
+      app:icon="@drawable/ic_star_empty"
+      app:iconGravity="textStart"
+      app:iconSize="24dp"
+      app:rippleColor="@null"
+      app:strokeWidth="0dp" />
+  </com.google.android.material.button.MaterialButtonToggleGroup>
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/btnCart"
+    android:text="@string/add_to_cart"
+    android:layout_width="match_parent"
+    app:iconGravity="end"
+    android:insetTop="@dimen/zero"
+    android:insetBottom="@dimen/zero"
+    android:gravity="start|center_vertical"
+    android:includeFontPadding="false"
+    android:paddingHorizontal="@dimen/default_space"
+    android:textAppearance="@style/Text.Medium.H6"
+    android:textColor="@color/white"
+    android:textAllCaps="true"
+    android:layout_marginBottom="@dimen/page_space"
+    app:icon="@drawable/ic_cart_go"
+    app:iconSize="24dp"
+    app:rippleColor="@color/gray"
+    android:layout_marginHorizontal="@dimen/default_space"
+    android:backgroundTint="@color/black"
+    android:layout_height="wrap_content"/>
+</LinearLayout>

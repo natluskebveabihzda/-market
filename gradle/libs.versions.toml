@@ -25,6 +25,9 @@ viewpager2 = "1.0.0"
 dotsindicator = "5.0"
 #Paging
 paging = "3.1.1"
+
+# LoggingInterceptor
+loggingInterceptor = "3.1.0"
 [libraries]
 
 # Core
@@ -81,6 +84,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitAndroid" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
+# Logging interceptor
+logging-interceptor = { group = "com.github.ihsanbal", name = "LoggingInterceptor" , version.ref = "loggingInterceptor"}
 [plugins]
 
 # Kotlin & Gradle

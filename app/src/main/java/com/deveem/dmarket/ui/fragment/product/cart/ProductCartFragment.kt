@@ -7,7 +7,6 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -15,6 +14,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.deveem.dmarket.MainActivity
 import com.deveem.dmarket.R
 import com.deveem.dmarket.core.base.BaseFragment
@@ -27,12 +27,12 @@ import java.util.*
 
 
 @AndroidEntryPoint
-class ProductsCartFragment : BaseFragment<FragmentProductsCartBinding, ProductsCartViewModel>(R.layout.fragment_product_detail) {
+class ProductCartFragment : BaseFragment<FragmentProductsCartBinding, ProductCartViewModel>(R.layout.bottom_sheet_dialog_fragment_product_detail) {
   
   override fun inflateBinding() = FragmentProductsCartBinding.inflate(layoutInflater)
-  override val viewModel by viewModels<ProductsCartViewModel>()
+  override val viewModel by viewModels<ProductCartViewModel>()
   private val productListAdapter by lazy {
-    ProductCartAdapter { model,position -> removeCartProduct(model,position) }
+    ProductCartAdapter { model, position -> removeCartProduct(model, position) }
   }
   
   override fun initView() {
@@ -94,7 +94,7 @@ class ProductsCartFragment : BaseFragment<FragmentProductsCartBinding, ProductsC
       spannable.length,
       Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
     )
-    (activity as MainActivity).setToolbarTitle(spannable,"")
+    (activity as MainActivity).setToolbarTitle(spannable, "")
   }
   
   
@@ -106,5 +106,20 @@ class ProductsCartFragment : BaseFragment<FragmentProductsCartBinding, ProductsC
         setHomeAsUpIndicator(R.drawable.ic_arrow_back)
       }
     }
+    
+    (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+      override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {}
+      
+      override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
+          android.R.id.home -> {
+            findNavController().navigateUp()
+          }
+          
+          else -> return true
+        }
+        return false
+      }
+    }, viewLifecycleOwner, Lifecycle.State.RESUMED)
   }
 }

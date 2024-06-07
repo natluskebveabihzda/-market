@@ -22,6 +22,7 @@
       android:layout_marginEnd="@dimen/default_space"
       android:contentDescription="@string/product"
       android:scaleType="centerInside"
+      android:layout_marginVertical="@dimen/default_space"
       android:src="@drawable/img_shirt"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@id/dividerProduct"

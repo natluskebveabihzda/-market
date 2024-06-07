@@ -13,25 +13,35 @@
     <action
       android:id="@+id/action_productListFragment_to_productsCartFragment"
       app:destination="@id/productsCartFragment"
-      app:popUpToSaveState="true"
-      app:restoreState="true"
       app:enterAnim="@anim/slide_in_right"
       app:exitAnim="@anim/slide_out_left"
       app:popEnterAnim="@anim/slide_in_left"
-      app:popExitAnim="@anim/slide_out_right"/>
+      app:popExitAnim="@anim/slide_out_right"
+      app:popUpToSaveState="true"
+      app:restoreState="true" />
+    <action
+      android:id="@+id/action_productListFragment_to_productDetailBottomSheetDialogFragment"
+      app:destination="@id/productDetailBottomSheetDialogFragment" />
+
   </fragment>
 
   <fragment
     android:id="@+id/productsCartFragment"
-    android:name="com.deveem.dmarket.ui.fragment.product.cart.ProductsCartFragment"
+    android:name="com.deveem.dmarket.ui.fragment.product.cart.ProductCartFragment"
     tools:layout="@layout/fragment_products_cart">
     <action
-      android:id="@+id/action_productsCartFragment_to_productListFragment"
-      app:destination="@id/productListFragment" />
+      android:id="@+id/action_productsCartFragment_to_productDetailBottomSheetDialogFragment"
+      app:destination="@id/productDetailBottomSheetDialogFragment" />
   </fragment>
 
-  <fragment
-    android:id="@+id/productDetailFragment"
-    android:name="com.deveem.dmarket.ui.fragment.product.detail.ProductDetailFragment"
-    tools:layout="@layout/fragment_product_detail" />
+  <dialog
+    android:id="@+id/productDetailBottomSheetDialogFragment"
+    android:name="com.deveem.dmarket.ui.fragment.product.detail.ProductDetailBottomSheetDialogFragment"
+    tools:layout="@layout/bottom_sheet_dialog_fragment_product_detail" >
+
+    <argument
+      android:name="product"
+      app:argType="com.deveem.dmarket.data.dto.ProductDto"
+      app:nullable="false" />
+  </dialog>
 </navigation>

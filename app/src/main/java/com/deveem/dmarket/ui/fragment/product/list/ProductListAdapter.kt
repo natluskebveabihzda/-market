@@ -3,6 +3,7 @@ package com.deveem.dmarket.ui.fragment.product.list
 
 import android.view.View
 import coil.load
+import coil.request.CachePolicy
 import com.deveem.dmarket.core.base.BaseAdapter
 import com.deveem.dmarket.data.dto.ProductDto
 import com.deveem.dmarket.databinding.ItemProductBinding
@@ -14,7 +15,9 @@ class ProductListAdapter(private val onItemClick: (ProductDto) -> Unit) :
     with(binding) {
       tvProductTitle.text = model.title
       tvProductPrice.text = model.price.toString()
-      ivProductImage.load(model.image)
+      ivProductImage.load(model.image) {
+        memoryCachePolicy(CachePolicy.DISABLED)
+      }
     }
     itemView.setOnClickListener { onItemClick(model) }
   }
