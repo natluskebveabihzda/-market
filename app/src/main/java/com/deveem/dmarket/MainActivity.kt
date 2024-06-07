@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
       if (destination.id == R.id.productsCartFragment) {
         binding.collapsingToolbar.collapsedTitleGravity = Gravity.START
         binding.toolbar.titleMarginStart = dpToPx(12f, resources.displayMetrics).toInt()
-        binding.toolbar.navigationIcon = ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_arrow_back)
       } else {
         with(binding) {
           collapsingToolbar.collapsedTitleGravity = Gravity.CENTER
@@ -76,6 +75,12 @@ class MainActivity : AppCompatActivity() {
             }
           }
         }
+      }
+      
+      if (destination.id == R.id.productListFragment) {
+        binding.toolbar.navigationIcon = null
+      } else {
+        binding.toolbar.setNavigationIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_arrow_back))
       }
     }
   }

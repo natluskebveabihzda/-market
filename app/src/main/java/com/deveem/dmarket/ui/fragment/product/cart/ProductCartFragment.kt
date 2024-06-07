@@ -102,8 +102,8 @@ class ProductCartFragment : BaseFragment<FragmentProductsCartBinding, ProductCar
     (activity as MainActivity).apply {
       supportActionBar?.run {
         setHomeActionContentDescription(getString(R.string.back))
-        setDisplayHomeAsUpEnabled(true)
-        setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        setDisplayHomeAsUpEnabled(true)/*
+        setHomeAsUpIndicator(R.drawable.ic_arrow_back)*/
       }
     }
     
